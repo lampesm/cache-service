@@ -10,6 +10,6 @@ WORKDIR /app
 
 RUN pip install --upgrade pip
 
-RUN pip install Wikipedia-API
+RUN pip install httpx
 
 COPY . .

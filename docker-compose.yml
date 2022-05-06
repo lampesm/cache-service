@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  app:
+    image: cache-service:1.0.1
+    container_name: cache-service-container
+    build: .
+    command: "python src/crawler/wikipedia.py"
+    volumes: 
+      - .:/app
