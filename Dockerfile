@@ -12,4 +12,8 @@ RUN pip install --upgrade pip
 
 RUN pip install Wikipedia-API
 
+RUN pip install fastapi
+
+RUN pip install "uvicorn[standard]"
+
 COPY . .
