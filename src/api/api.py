@@ -7,8 +7,8 @@ app = FastAPI()
 
 
 @app.get("/api/v1/wiki/")
-def downalod_wiki_query(query: str):
-    w = Wikipedia(query)
-    insert_to_db(w.get_information)
+async def downalod_wiki_query(query: str):
+    wiki = Wikipedia(query)
+    await insert_to_db(wiki.get_information)
 
-    return w.get_information
+    return wiki.get_information
