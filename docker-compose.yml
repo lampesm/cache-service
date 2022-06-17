@@ -10,3 +10,27 @@ services:
       - 8002:8000
     volumes: 
       - .:/app
+    depends_on:
+      - mongo
+    networks:
+      - cache-service-ntw
+  mongo:
+    image: mongo:5.0.8
+    container_name: cache-service-mongo-container
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 27017:27017
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+      - cache_service_mongodb_data:/data/db
+    networks:
+      - cache-service-ntw
+
+volumes:
+  cache_service_mongodb_data:
+
+networks:
+  cache-service-ntw:
+    driver: bridge

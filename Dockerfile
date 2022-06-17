@@ -16,4 +16,12 @@ RUN pip install fastapi
 
 RUN pip install "uvicorn[standard]"
 
+RUN pip install python-decouple
+
+RUN pip install motor
+
+RUN pip install tornado
+
+RUN pip install pymongo
+
 COPY . .
