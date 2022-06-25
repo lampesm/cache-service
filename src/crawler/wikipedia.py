@@ -10,7 +10,11 @@ class Wikipedia:
 
     @property
     def get_information(self) -> Union[Dict, bool]:
-        if self.page_py.exists():
-            return {"title": self.page_py.title, "summary": self.page_py.summary[0:60]}
-        else:
+        try:
+            if self.page_py.exists():
+                return {"title": self.page_py.title, "summary": self.page_py.summary[0:60]}
+            else:
+                return False
+        except Exception as e:
+            print(f"error: {e}")
             return False
