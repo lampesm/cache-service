@@ -22,6 +22,4 @@ RUN pip install motor
 
 RUN pip install tornado
 
-RUN pip install pymongo
-
 COPY . .
